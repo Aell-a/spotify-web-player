@@ -25,6 +25,7 @@ export default function Dashboard({ code }) {
 
   useEffect(() => {
     if (!playingTrack) return;
+    console.log(playingTrack);
 
     axios
       .get("http://localhost:3001/lyrics", {
@@ -34,6 +35,7 @@ export default function Dashboard({ code }) {
         },
       })
       .then((res) => {
+        console.log(res.data);
         setLyrics(res.data.lyrics);
       });
   }, [playingTrack]);
